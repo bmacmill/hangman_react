@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -28,4 +30,27 @@ header > p {
   font-size: .825rem;
   color: #8E8E8E;
   max-width: 350px;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+
+.Status{
+  background-color: #10A95B;
+  width: 500px;
+  text-align: center;
+  padding: 0.5em;
+  color: #F9F4DA;
+  font-weight: 500;
+  margin: 1em auto;
+  border-radius: .25em;
+  
+}
+
+.Status > h2 {
+  font-size: 1.25rem;
+  
+}
+.Status > p{
+  text-align: center;
+  font-size: 1rem;
 }
