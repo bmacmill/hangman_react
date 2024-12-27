@@ -54,3 +54,21 @@ header > p {
   text-align: center;
   font-size: 1rem;
 }
+
+.Languages{
+  display: flex; 
+  flex-wrap: wrap;
+  max-width: 350px;
+  gap: 5px;
+  justify-content: center;
+  margin: 1em auto;
+}
+
+
+.Languages > div {
+  padding: 4.5px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  
+}

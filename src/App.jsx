@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from "./components/Header"
 import Status from "./components/Status"
+import Languages from "./components/Languages"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ function App() {
     <>
       <Header />
       <Status />
+      <Languages />
     </>
   )
 }
