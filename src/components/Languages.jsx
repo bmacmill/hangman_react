@@ -4,8 +4,8 @@ import { languages } from "../../languages.js"
 
 
 
-const languageElements = languages.map((lang) => {
-    return <div key={lang} style={{ backgroundColor: `${lang.backgroundColor}`, color: `${lang.color}` }}>
+const languageElements = languages.map((lang, index) => {
+    return <div key={index} style={{ backgroundColor: `${lang.backgroundColor}`, color: `${lang.color}` }}>
         {lang.name}</div>
 
 })
