@@ -11,13 +11,13 @@ function App() {
 
 
   return (
-    <>
+    <main>
       <Header />
       <Status />
       <Languages />
       <Word />
       <Keyboard />
-    </>
+    </main>
   )
 }
 
