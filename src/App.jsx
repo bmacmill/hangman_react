@@ -5,9 +5,10 @@ import Header from "./components/Header"
 import Status from "./components/Status"
 import Languages from "./components/Languages"
 import Word from "./components/Word"
+import Keyboard from "./components/Keyboard"
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
       <Status />
       <Languages />
       <Word />
+      <Keyboard />
     </>
   )
 }
