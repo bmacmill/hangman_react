@@ -4,13 +4,23 @@ import { languages } from "../../languages.js"
 
 
 
-const languageElements = languages.map((lang, index) => {
-    return <div key={index} style={{ backgroundColor: `${lang.backgroundColor}`, color: `${lang.color}` }}>
-        {lang.name}</div>
 
-})
 
-export default function Languages() {
+export default function Languages({ guessedLetters, currentWord }) {
+    const lostLang = guessedLetters.filter(letter => !currentWord.includes(letter)).length
+
+
+    const languageElements = languages.map((lang, index) => {
+        const styles = {
+            backgroundColor: lang.backgroundColor,
+            color: lang.color
+        }
+        return <div key={index} style={styles} className={lostLang > index ? "lost" : ""}>
+            {lang.name}</div>
+
+    })
+
+
     return (
         <section className="Languages">{languageElements}</section>
     )

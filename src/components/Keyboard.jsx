@@ -1,8 +1,8 @@
 import React from "react"
-
-
-export default function Keyboard() {
-    const [guessedLetters, setGuessedLetters] = React.useState([])
+import clsx from 'clsx';
+import "../App.css"
+export default function Keyboard({ currentWord, guessedLetters, setGuessedLetters }) {
+    // const [guessedLetters, setGuessedLetters] = React.useState([])
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
@@ -14,11 +14,24 @@ export default function Keyboard() {
         )
     }
 
-    const keyboardElements = alphabet.split("").map((letter) => (
-        <button
-            onClick={() => addGuessedLetter(letter)}
-            key={letter}>{letter}</button>
-    ))
+
+
+    const keyboardElements = alphabet.split("").map((letter) => {
+        const isGuessed = guessedLetters.includes(letter)
+        const isCorrect = isGuessed && currentWord.includes(letter)
+        const guessedClass = clsx({ green: isGuessed && isCorrect, red: isGuessed && !isCorrect })
+
+        return (< button
+            disabled={guessedLetters.length >= 8 ? true : false}
+            className={guessedClass}
+            onClick={() => addGuessedLetter(letter)
+            }
+            key={letter} > {letter}</button >
+
+        )
+    })
+
+
     return (
         <>
             <section className="Keyboard">{keyboardElements}</section>

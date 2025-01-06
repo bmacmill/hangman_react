@@ -30,6 +30,7 @@ header > h1 {
   font-size: 1.25rem;
   font-weight: 500;
   color: #F9F4DA;
+  margin-bottom: 1em;
   
 }
 
@@ -73,11 +74,26 @@ header > p {
 
 
 .Languages > div {
-  padding: 4.5px;
+  padding: 0.5em;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 700;
-  
+  position: relative;
+}
+
+/* Dimmed overlay with skull on "lost" languages */
+div.lost::before {
+  content: "💀";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .Word {
@@ -119,6 +135,13 @@ header > p {
   border-radius: 3px;
   cursor: pointer;
 }
+.Keyboard > .green{
+  background-color: #10A95B;
+}
+
+ .Keyboard > .red {
+  background-color:#EC5D49;
+}
 
 .New-game{
   background-color: #11B5E5;
@@ -131,3 +154,4 @@ header > p {
   margin-inline: auto;
   cursor: pointer;
 }
+
