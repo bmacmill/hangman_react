@@ -13,7 +13,7 @@ function App() {
   return (
     <main>
       <Header />
-      <Status />
+      <Status guessedLetters={guessedLetters} currentWord={currentWord}/>
       <Languages guessedLetters={guessedLetters} currentWord={currentWord}/>
       <Word currentWord={currentWord} guessedLetters={guessedLetters} />
       <Keyboard currentWord={currentWord} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
