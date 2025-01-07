@@ -6,7 +6,10 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
     const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter))
-    const isGameOver = wrongLetters.length === 8
+    const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
+    console.log(gameWon)
+    const isGameOver = wrongLetters.length === 8 || gameWon
+
     function addGuessedLetter(letter) {
         setGuessedLetters(prevLetters =>
             prevLetters.includes(letter) ?
@@ -23,7 +26,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
         const guessedClass = clsx({ green: isGuessed && isCorrect, red: isGuessed && !isCorrect })
 
         return (< button
-            disabled={wrongLetters.length >= 8 ? true : false}
+            disabled={isGameOver}
             className={guessedClass}
             onClick={() => addGuessedLetter(letter)
             }
