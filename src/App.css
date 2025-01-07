@@ -51,7 +51,6 @@ header > p {
   font-weight: 500;
   margin: 1em auto;
   border-radius: .25em;
-  
 }
 
 .Status > h2 {
@@ -123,7 +122,6 @@ div.lost::before {
   justify-content: center;
   max-width: 450px;
   margin-bottom: 2em;
-  
 }
 
 .Keyboard > button {

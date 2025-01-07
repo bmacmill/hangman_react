@@ -5,7 +5,8 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
     // const [guessedLetters, setGuessedLetters] = React.useState([])
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
-
+    const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter))
+    const isGameOver = wrongLetters.length === 8
     function addGuessedLetter(letter) {
         setGuessedLetters(prevLetters =>
             prevLetters.includes(letter) ?
@@ -22,7 +23,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
         const guessedClass = clsx({ green: isGuessed && isCorrect, red: isGuessed && !isCorrect })
 
         return (< button
-            disabled={guessedLetters.length >= 8 ? true : false}
+            disabled={wrongLetters.length >= 8 ? true : false}
             className={guessedClass}
             onClick={() => addGuessedLetter(letter)
             }
@@ -35,7 +36,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
     return (
         <>
             <section className="Keyboard">{keyboardElements}</section>
-            <button className="New-game">New Game</button>
+            {isGameOver && <button className="New-game">New Game</button>}
         </>
     )
 }
