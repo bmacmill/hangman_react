@@ -5,10 +5,10 @@ import { languages } from "../../languages.js"
 
 export default function Status({ guessedLetters, currentWord }) {
     console.log(getFarewellText(languages[0].name))
-    
+
     const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter))
     const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
-
+    console.log({ wrongLetters })
     const isGameOver = wrongLetters.length === 8 || gameWon
     //find if last guess is correct or not?
     const lastGuess = guessedLetters[guessedLetters.length - 1]
@@ -16,15 +16,16 @@ export default function Status({ guessedLetters, currentWord }) {
     console.log(lastGuessCorrect)
     //get last guess of guessed letters array
     //see if last guess is in the currentWord
-    const msg = ["nope", "nice try", "nyet", "un nuh", "ah doy"]
+    const msg = ["nope", "nice try", "nyet", "un nuh", "Farewell", "Adios"]
     const rand = Math.floor(Math.random() * msg.length)
     console.log(rand)
     if (!isGameOver && lastGuess && !lastGuessCorrect) {
         return <section className="Status wrongMsg" style={{ opacity: 1 }}>
-            <h2>MSG</h2>
             <p>{msg[rand]}</p>
         </section>
     }
+    //make a helper function to render correct status??
+    //use cslx for better className management...
     return (
 
 
@@ -42,7 +43,10 @@ export default function Status({ guessedLetters, currentWord }) {
         )
 
             : (
-                null
+                <section className="Status" style={{ opacity: 0 }}>
+                    {/* <h2></h2>
+                    <p></p> */}
+                </section>
             )
     )
 }
