@@ -43,7 +43,7 @@ header > p {
 }
 
 .Status{
-  background-color: #10A95B;
+  /* background-color: #10A95B; */
   width: 100%;
   text-align: center;
   padding: 0.5em;
@@ -56,6 +56,14 @@ header > p {
 }
 .Status.Lose{
   background-color: #EC5D49;
+}
+.Status.wrongMsg{
+  background-color: purple;
+  
+}
+.Status.Win{
+  background-color: #10A95B;
+  
 }
 
 .Status > h2 {
