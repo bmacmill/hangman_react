@@ -16,34 +16,36 @@ export default function Status({ guessedLetters, currentWord }) {
     console.log(lastGuessCorrect)
     //get last guess of guessed letters array
     //see if last guess is in the currentWord
-    const msg = ["nope", "nice try", "nyet", "un nuh", "Farewell", "Adios"]
+    const msg = ["nope", "nice try", "nyet", "uh nuh", "Farewell", "Adios"]
     const rand = Math.floor(Math.random() * msg.length)
     console.log(rand)
     if (!isGameOver && lastGuess && !lastGuessCorrect) {
-        return <section className="Status wrongMsg" style={{ opacity: 1 }}>
+        return <section aria-live="polite" role="status" className="Status wrongMsg" style={{ opacity: 1 }}>
             <p>{msg[rand]}</p>
         </section>
     }
     //make a helper function to render correct status??
     //use cslx for better className management...
+
+    //make 1 section with message to display in section//this is a mess!!!!
     return (
 
 
         isGameOver ? (
             gameWon ? (
-                <section className="Status Win" style={{ opacity: 1 }}>
+                <section aria-live="polite" role="status" className="Status Win" style={{ opacity: 1 }}>
                     <h2>You Win</h2>
                     <p>Well done 🎉!</p>
                 </section>
             ) :
-                <section className="Status Lose" style={{ opacity: 1 }}>
+                <section aria-live="polite" role="status" className="Status Lose" style={{ opacity: 1 }}>
                     <h2>Game Over</h2>
                     <p>You better start learning Assembly! ☠️</p>
                 </section>
         )
 
             : (
-                <section className="Status" style={{ opacity: 0 }}>
+                <section aria-live="polite" role="status" className="Status" style={{ opacity: 0 }}>
                     {/* <h2></h2>
                     <p></p> */}
                 </section>

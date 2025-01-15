@@ -5,7 +5,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
     // const [guessedLetters, setGuessedLetters] = React.useState([])
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
+
     const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter))
     const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
     // console.log(gameWon)
@@ -29,6 +29,8 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
         return (< button
             disabled={isGameOver}
             className={guessedClass}
+            aria-disabled={guessedLetters.includes(letter)}
+            aria-label={`Letter ${letter}`}
             onClick={() => addGuessedLetter(letter)
             }
             key={letter} > {letter}</button >
