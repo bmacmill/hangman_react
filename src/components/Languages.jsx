@@ -1,10 +1,5 @@
 import React from "react"
-
 import { languages } from "../../languages.js"
-
-
-
-
 
 export default function Languages({ guessedLetters, currentWord }) {
     const lostLang = guessedLetters.filter(letter => !currentWord.includes(letter)).length
