@@ -6,14 +6,15 @@ import Status from "./components/Status"
 import Languages from "./components/Languages"
 import Word from "./components/Word"
 import Keyboard from "./components/Keyboard"
+import {languages} from "../languages"
 
 function App() {
   const [currentWord, setCurrentWord] = React.useState("react")
   const [guessedLetters, setGuessedLetters] = React.useState([])
-
+  
   const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter)).length
   
-  const isGameOver = wrongLetters >= 8
+  const isGameOver = wrongLetters >= languages.length - 1
   
   return (
     <main>
