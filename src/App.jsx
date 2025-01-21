@@ -10,13 +10,24 @@ import Keyboard from "./components/Keyboard"
 function App() {
   const [currentWord, setCurrentWord] = React.useState("react")
   const [guessedLetters, setGuessedLetters] = React.useState([])
+
+  const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter)).length
+  
+  const isGameOver = wrongLetters >= 8
+  
   return (
     <main>
       <Header />
-      <Status guessedLetters={guessedLetters} currentWord={currentWord}/>
+      <Status 
+        guessedLetters={guessedLetters} 
+        currentWord={currentWord} 
+        wrongLetters={wrongLetters}
+        isGameOver={isGameOver}
+      />
+
       <Languages guessedLetters={guessedLetters} currentWord={currentWord}/>
       <Word currentWord={currentWord} guessedLetters={guessedLetters} />
-      <Keyboard currentWord={currentWord} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
+      <Keyboard isGameOver={isGameOver} currentWord={currentWord} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
     </main>
   )
 }
