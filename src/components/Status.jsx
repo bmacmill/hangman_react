@@ -51,6 +51,7 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
         )
 
             : (
+                // filling in the space so message "area" remains in dom
                 <section aria-live="polite" role="status" className="Status" style={{ opacity: 0 }}>
                     {/* <h2></h2>
                     <p></p> */}

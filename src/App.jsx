@@ -21,7 +21,7 @@ function App() {
 
   return (
     <main>
-      <Header />
+      <Header languages={languages}/>
       <Status 
         guessedLetters={guessedLetters} 
         currentWord={currentWord} 
