@@ -1,7 +1,7 @@
 import React from "react"
 import clsx from 'clsx';
 import "../App.css"
-export default function Keyboard({ currentWord, guessedLetters, setGuessedLetters, isGameOver }) {
+export default function Keyboard({ randomWord, currentWord, setCurrentWord, guessedLetters, setGuessedLetters, isGameOver }) {
     // const [guessedLetters, setGuessedLetters] = React.useState([])
     
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -19,7 +19,10 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
         )
     }
 
-
+    function resetGame(){
+        setCurrentWord(randomWord())
+        setGuessedLetters([])
+    }
 
     const keyboardElements = alphabet.split("").map((letter) => {
         const isGuessed = guessedLetters.includes(letter)
@@ -42,7 +45,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
     return (
         <>
             <section className="Keyboard">{keyboardElements}</section>
-            {isGameOver && <button className="New-game">New Game</button>}
+            {isGameOver && <button className="New-game" onClick={resetGame}>New Game</button>}
         </>
     )
 }
