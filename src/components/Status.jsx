@@ -30,32 +30,34 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
             <p>{getFarewellText(languages[wrongLetters - 1].name)}</p>
         </section>
     }
-    //make a helper function to render correct status??
-    //use cslx for better className management...
-
-    //make 1 section with message to display in section//this is a mess!!!!
-    return (
-
-
-        isGameOver ? (
-            gameWon ? (
-                <section aria-live="polite" role="status" className="Status Win" style={{ opacity: 1 }}>
-                    <h2>You Win</h2>
-                    <p>Well done 🎉!</p>
-                </section>
-            ) :
-                <section aria-live="polite" role="status" className="Status Lose" style={{ opacity: 1 }}>
-                    <h2>Game Over</h2>
-                    <p>You better start learning Assembly! ☠️</p>
-                </section>
-        )
-
-            : (
-                // filling in the space so message "area" remains in dom
-                <section aria-live="polite" role="status" className="Status" style={{ opacity: 0 }}>
-                    {/* <h2></h2>
-                    <p></p> */}
-                </section>
+    //make a helper function to render correct status instead of turnary
+    function renderGameStatus(){
+        if(!isGameOver){
+             // filling in the space so message "area" remains in dom
+            return (
+                    <section aria-live="polite" role="status" className="Status" style={{ opacity: 0 }}>
+            
+                     </section>)
+        }
+        if (gameWon) {
+            return (
+            <section aria-live="polite" role="status" className="Status Win" style={{ opacity: 1 }}>
+                <h2>You Win</h2>
+                <p>Well done 🎉!</p>
+            </section>
             )
-    )
+        } else {
+            return (
+                <section aria-live="polite" role="status" className="Status Lose" style={{ opacity: 1 }}>
+                <h2>Game Over</h2>
+                <p>You better start learning Assembly! ☠️</p>
+            </section>  
+            )
+        }
+    }
+    
+
+    return (
+            renderGameStatus()
+        )
 }
