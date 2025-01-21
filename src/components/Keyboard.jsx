@@ -30,6 +30,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
             disabled={isGameOver}
             className={guessedClass}
             aria-disabled={guessedLetters.includes(letter)}
+            // screen reader will read aria label, add letter
             aria-label={`Letter ${letter}`}
             onClick={() => addGuessedLetter(letter)}
             key={letter} > {letter}</button >

@@ -12,8 +12,16 @@ export default function Word({ currentWord, guessedLetters }) {
 
     })
     return (
+        <>        
         <section className="Word">
             {letterElements}
         </section>
+
+{/* screen reader only secition period after letter adds a little pause*/}
+        <section className="sr-only" aria-live="polite" status="role">
+             <p>current word: {currentWord.split("").map((letter) => guessedLetters.includes(letter) ? letter + "." : "blank")}</p>
+            </section>
+        </>
+
     )
 }

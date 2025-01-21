@@ -26,10 +26,11 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
     //     </section>
     // }
     //make a helper function to render correct status instead of turnary
-    
+
     function renderGameStatus(){
         if(!isGameOver && lastGuess && !lastGuessCorrect){
             return (
+                //aria-live and role for a11y
             <section aria-live="polite" role="status" className="Status wrongMsg" style={{ opacity: 1 }}>
                 <p>{getFarewellText(languages[wrongLetters - 1].name)}</p>
             </section>)
