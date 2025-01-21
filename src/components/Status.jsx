@@ -5,8 +5,8 @@ import { languages } from "../../languages.js"
 
 export default function Status({ guessedLetters, currentWord }) {
     console.log(getFarewellText(languages[0].name))
-
-    const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter))
+    
+    const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter)).length
     const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
     console.log({ wrongLetters })
     const isGameOver = wrongLetters.length === 8 || gameWon
