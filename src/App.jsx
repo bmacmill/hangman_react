@@ -13,9 +13,12 @@ function App() {
   const [guessedLetters, setGuessedLetters] = React.useState([])
   
   const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter)).length
+  const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
   
-  const isGameOver = wrongLetters >= languages.length - 1
+  const isGameOver = wrongLetters >= languages.length - 1 || gameWon
   
+  
+
   return (
     <main>
       <Header />
@@ -24,6 +27,7 @@ function App() {
         currentWord={currentWord} 
         wrongLetters={wrongLetters}
         isGameOver={isGameOver}
+        gameWon={gameWon}
       />
 
       <Languages guessedLetters={guessedLetters} currentWord={currentWord}/>
