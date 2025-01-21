@@ -1,13 +1,20 @@
 import React from "react"
 
 
-export default function Word({ currentWord, guessedLetters }) {
-    //const [currentWord, setCurrentWord] = React.useState("react")
-    //vfor a11y read out of guesses
+export default function Word({ currentWord, guessedLetters, isGameOver }) {
+    console.log(isGameOver)
+    //for a11y read out of guesses
     const lastGuess = guessedLetters[guessedLetters.length - 1]
     const letterElements = currentWord.split("").map((letter, index) => {
         return (
-            <span key={self.crypto.randomUUID()}> {guessedLetters.includes(letter) ? letter : ""}</span >
+            <span key={self.crypto.randomUUID()}> 
+            
+            
+            {!isGameOver ? guessedLetters.includes(letter) ? letter : "" :
+            currentWord.split(" ").map(letter => !guessedLetters.includes(letter) ? letter : letter)}
+            
+            
+            </span >
         )
 
 

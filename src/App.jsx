@@ -33,7 +33,7 @@ function App() {
       />
 
       <Languages guessedLetters={guessedLetters} currentWord={currentWord}/>
-      <Word currentWord={currentWord} guessedLetters={guessedLetters} />
+      <Word currentWord={currentWord} guessedLetters={guessedLetters} isGameOver={isGameOver}/>
       <Keyboard randomWord={randomWord} isGameOver={isGameOver} currentWord={currentWord} setCurrentWord={setCurrentWord} guessedLetters={guessedLetters} setGuessedLetters={setGuessedLetters} />
     </main>
   )
