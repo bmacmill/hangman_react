@@ -31,8 +31,7 @@ export default function Keyboard({ currentWord, guessedLetters, setGuessedLetter
             className={guessedClass}
             aria-disabled={guessedLetters.includes(letter)}
             aria-label={`Letter ${letter}`}
-            onClick={() => addGuessedLetter(letter)
-            }
+            onClick={() => addGuessedLetter(letter)}
             key={letter} > {letter}</button >
 
         )
