@@ -7,11 +7,13 @@ import Languages from "./components/Languages"
 import Word from "./components/Word"
 import Keyboard from "./components/Keyboard"
 import {languages} from "../languages"
+import {randomWord} from "../utils"
 
 function App() {
-  const [currentWord, setCurrentWord] = React.useState("react")
+  const [currentWord, setCurrentWord] = React.useState(()=> randomWord())
   const [guessedLetters, setGuessedLetters] = React.useState([])
   
+
   const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter)).length
   const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
   
