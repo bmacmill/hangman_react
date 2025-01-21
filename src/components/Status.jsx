@@ -15,29 +15,24 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
     //console.log({ wrongLetters })
     //const isGameOver = wrongLetters && wrongLetters.length === 8 || gameWon
    
-    //find if last guess is correct or not?
+    //find if last guess is correct or not to
     const lastGuess = guessedLetters[guessedLetters.length - 1]
-    const lastGuessCorrect = currentWord.includes(lastGuess)
-    //console.log(lastGuessCorrect)
-    //get last guess of guessed letters array
-    //see if last guess is in the currentWord
-    // const msg = ["nope", "nice try", "nyet", "uh nuh", "Farewell", "Adios", "Yeah, no"]
-    
-    // const rand = Math.floor(Math.random() * msg.length)
-   // console.log(rand)
-    if (!isGameOver && lastGuess && !lastGuessCorrect) {
-        return <section aria-live="polite" role="status" className="Status wrongMsg" style={{ opacity: 1 }}>
-            <p>{getFarewellText(languages[wrongLetters - 1].name)}</p>
-        </section>
-    }
+    const lastGuessCorrect = lastGuess && currentWord.includes(lastGuess)
+  
+    //use last guess and 
+    // if (!isGameOver && lastGuess && !lastGuessCorrect) {
+    //     return <section aria-live="polite" role="status" className="Status wrongMsg" style={{ opacity: 1 }}>
+    //         <p>{getFarewellText(languages[wrongLetters - 1].name)}</p>
+    //     </section>
+    // }
     //make a helper function to render correct status instead of turnary
+    
     function renderGameStatus(){
-        if(!isGameOver){
-             // filling in the space so message "area" remains in dom
+        if(!isGameOver && lastGuess && !lastGuessCorrect){
             return (
-                    <section aria-live="polite" role="status" className="Status" style={{ opacity: 0 }}>
-            
-                     </section>)
+            <section aria-live="polite" role="status" className="Status wrongMsg" style={{ opacity: 1 }}>
+                <p>{getFarewellText(languages[wrongLetters - 1].name)}</p>
+            </section>)
         }
         if (gameWon) {
             return (
@@ -46,9 +41,9 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
                 <p>Well done 🎉!</p>
             </section>
             )
-        } else {
+        } else if(isGameOver) {
             return (
-                <section aria-live="polite" role="status" className="Status Lose" style={{ opacity: 1 }}>
+            <section aria-live="polite" role="status" className="Status Lose" style={{ opacity: 1 }}>
                 <h2>Game Over</h2>
                 <p>You better start learning Assembly! ☠️</p>
             </section>  
