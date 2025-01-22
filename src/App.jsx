@@ -8,6 +8,8 @@ import Word from "./components/Word"
 import Keyboard from "./components/Keyboard"
 import {languages} from "../languages"
 import {randomWord} from "../utils"
+import Confetti from 'react-confetti'
+
 
 function App() {
   const [currentWord, setCurrentWord] = React.useState(()=> randomWord())
@@ -19,10 +21,15 @@ function App() {
   
   const isGameOver = wrongLetters >= languages.length - 1 || gameWon
   
-  
+  // if(isGameOver){
+  //   return (
+  //     <Confetti/>
+  //   )
+  // }
 
   return (
     <main>
+      {gameWon && <Confetti numberOfPieces={1000} recycle={false}/>}
       <Header languages={languages}/>
       <Status 
         guessedLetters={guessedLetters} 
