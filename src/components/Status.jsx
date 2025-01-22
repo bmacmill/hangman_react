@@ -27,7 +27,9 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
     // }
     //make a helper function to render correct status instead of turnary
 
+    
     function renderGameStatus(){
+        
         if(!isGameOver && lastGuess && !lastGuessCorrect){
             return (
                 //aria-live and role for a11y

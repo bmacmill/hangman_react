@@ -10,7 +10,7 @@ export default function Word({ currentWord, guessedLetters, isGameOver }) {
             <span key={self.crypto.randomUUID()}> 
             
             
-            {guessedLetters.includes(letter) ? letter : !isGameOver ? "" : <span style={{color: "red"}}>{letter}</span>}
+            {guessedLetters.includes(letter) ? letter : !isGameOver ? "" : <span style={{color: "#EC5D49"}}>{letter}</span>}
             
             
             </span >
