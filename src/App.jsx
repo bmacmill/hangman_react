@@ -21,11 +21,6 @@ function App() {
   
   const isGameOver = wrongLetters >= languages.length - 1 || gameWon
   
-  // if(isGameOver){
-  //   return (
-  //     <Confetti/>
-  //   )
-  // }
 
   return (
     <main>

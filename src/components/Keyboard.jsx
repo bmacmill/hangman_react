@@ -2,14 +2,13 @@ import React from "react"
 import clsx from 'clsx';
 import "../App.css"
 export default function Keyboard({ randomWord, currentWord, setCurrentWord, guessedLetters, setGuessedLetters, isGameOver }) {
-    // const [guessedLetters, setGuessedLetters] = React.useState([])
+    
     
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    //const wrongLetters = guessedLetters.filter((letter) => !currentWord.includes(letter))
+    //is this used????
     const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
-    // console.log(gameWon)
-   // const isGameOver = wrongLetters.length === 8 || gameWon
+
 
     function addGuessedLetter(letter) {
         setGuessedLetters(prevLetters =>

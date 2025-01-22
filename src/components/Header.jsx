@@ -1,5 +1,4 @@
 import React from "react"
-// import "../App.css"
 
 export default function Header({languages}) {
     const numberOFAttempts = languages.length - 1
