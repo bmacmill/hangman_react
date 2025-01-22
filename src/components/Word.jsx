@@ -2,7 +2,7 @@ import React from "react"
 
 
 export default function Word({ currentWord, guessedLetters, isGameOver }) {
-    console.log(isGameOver)
+    
     //for a11y read out of guesses
     const lastGuess = guessedLetters[guessedLetters.length - 1]
     const letterElements = currentWord.split("").map((letter, index) => {

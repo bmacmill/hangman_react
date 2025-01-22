@@ -6,8 +6,6 @@ export default function Keyboard({ randomWord, currentWord, setCurrentWord, gues
     
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    //is this used????
-    const gameWon = currentWord.split("").every((letter) => guessedLetters.includes(letter))
 
 
     function addGuessedLetter(letter) {
