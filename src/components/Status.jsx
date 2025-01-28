@@ -41,6 +41,8 @@ export default function Status({ guessedLetters, currentWord, wrongLetters, isGa
     
 
     return (
-            renderGameStatus()
+        <section role="status" className="Status" style={{ opacity: 1 }}>
+            {renderGameStatus()}
+        </section>
         )
 }
